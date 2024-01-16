@@ -511,6 +511,46 @@ In this, I compile all the commands with output in README.md file.
 
 **Step 5:Push the codebase for the sample application to your GitHub repository create a new one for this part**
 
+git status
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	copy_test.conf
+	custom.conf
+	default.conf
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+git add . 
+
+naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ git commit -m "Compile all the commands in README.md"
+
+[main 8990a32] Compile all the commands in README.md
+ 4 files changed, 561 insertions(+)
+ create mode 100644 copy_test.conf
+ create mode 100644 custom.conf
+ create mode 100644 default.conf
+
+naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ git push origin main 
+
+Username for 'https://github.com': itsnaeem
+Password for 'https://itsnaeem@github.com': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 5.67 KiB | 5.67 MiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Itsnaeem/Dice-Assignment1-Part2.git
+   200074a..8990a32  main -> main
 
 
 
