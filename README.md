@@ -3,7 +3,9 @@ This Assignment based on Docker. In this part We will do Docker Containers with 
 
 **Step 1: Using the docker image from Part 1**
 
-``docker images``
+```bash
+docker images
+```
 
 REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
 - random_fact   latest    84ba4bd82b9e   23 hours ago   1.07GB
@@ -14,7 +16,9 @@ we will use random_fact docker image for this assignment.
 
 **Step 2: Run the Docker Container**
 
-``docker run -p 5000:89 random_fact``
+```bash
+docker run -p 5000:89 random_fact
+```
 
  * Serving Flask app 'random_fact'
  * Debug mode: off
@@ -30,30 +34,40 @@ Press CTRL+C to quit
 
 **Step 3: Use Different Docker Container Commands**
 
-`docker ps`
+```bash
+docker ps
+```
 
 This command is used for list the running containers
 
 CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS                  NAMES
 fd29ad768e21   random_fact   "python ./random_fac…"   3 seconds ago   Up 2 seconds   0.0.0.0:5000->89/tcp   mystifying_roentgen
 
-`docker stop`
+```bash
+docker stop
+```
 
 This command is used to stop the coontainer. we need to enter command with container name.
 
 docker stop mystifying_roentgen 
 mystifying_roentgen
 
-`docker exec`
+```bash
+docker exec
+```
 
 This command is used to run terminal insde the container.
 docker exec -it elated_snyder sh
 
-* ls
+```bash
+ls
+```
 
 * Dockerfile  README.md  myenv  random_fact.py  requirements.txt
 
-`docker logs`
+```bash
+docker logs
+```
 
 This command is used to see the container logs.
 
@@ -67,7 +81,9 @@ WARNING: This is a development server. Do not use it in a production deployment.
 
 Press CTRL+C to quit
 
-`docker restart`
+```bash
+docker restart
+```
 
 This command is used to restart the container.
 we need to enter container name with restart.
@@ -75,51 +91,77 @@ we need to enter container name with restart.
 * docker restart elated_snyder 
 elated_snyder
 
-* naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$  docker ps
+* naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$
+
+```bash
+  docker ps
+```
 
 CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS          PORTS                  NAMES
 117d420f36dc   random_fact   "python ./random_fac…"   6 minutes ago   Up 17 seconds   0.0.0.0:5000->89/tcp   elated_snyder
 
-`docker update`
+```bash
+docker update
+```
 
 This command is used to update the resources of container Like RAM, CPU.
 
 docker inspect --format '{{.HostConfig.Memory}} {{.HostConfig.MemorySwap}}' elated_snyder
 0 0
 
+```bash
 docker update --cpu-shares 512 -m 1GB --memory-swap 1GB elated_snyder
 elated_snyder
+```
 
-docker inspect --format '{{.HostConfig.Memory}} {{.HostConfig.MemorySwap}}' elated_snyder
+```bash
+docker inspect --format '{{.HostConfig.Memory}} {{.HostConfig.MemorySwap}}
+```
+elated_snyder
 1073741824 1073741824
 
+```bash
 docker update --cpu-shares 512 -m 500M --memory-swap 500M elated_snyder
+```
+
 elated_snyder
 
+```bash
 docker inspect --format '{{.HostConfig.Memory}} {{.HostConfig.MemorySwap}}' elated_snyder
 524288000 524288000
+```
 
-`docker top`
+```bash
+docker top
+```
 
 docker top elated_snyder 
 UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
 root                2017                1990                0                   09:53               ?                   00:00:00            python ./random_fact.py
 
-`docker start`
+```bash
+docker start
+```
 
+```bash
 docker stop elated_snyder
+```
+
 elated_snyder
 
 naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ docker start elated_snyder
 elated_snyder
 
-`docker stats`
-
+```bash
+docker stats
+```
 
 CONTAINER ID   NAME            CPU %     MEM USAGE / LIMIT   MEM %     NET I/O       BLOCK I/O   PIDS
 117d420f36dc   elated_snyder   0.01%     22.68MiB / 500MiB   4.54%     1.02kB / 0B   0B / 0B     1
 
-`docker pause`
+```bash
+docker pause
+```
 
  docker pause elated_snyder 
 
@@ -129,7 +171,9 @@ naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ docker ps
 CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                       PORTS                  NAMES
 117d420f36dc   random_fact   "python ./random_fac…"   56 minutes ago   Up About a minute (Paused)   0.0.0.0:5000->89/tcp   elated_snyder
 
-`docker unpause`
+```bash
+docker unpause
+```
 
 docker unpause elated_snyder 
 
@@ -139,18 +183,24 @@ naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ docker ps
 CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS         PORTS                  NAMES
 117d420f36dc   random_fact   "python ./random_fac…"   57 minutes ago   Up 2 minutes   0.0.0.0:5000->89/tcp   elated_snyder
 
-`docker rename`
+```bash
+docker rename
+```
 
+```bash
 docker rename elated_snyder random_python_app
-
+```
 naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ docker ps
 CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS         PORTS                  NAMES
 117d420f36dc   random_fact   "python ./random_fac…"   58 minutes ago   Up 4 minutes   0.0.0.0:5000->89/tcp   random_python_app
 
-`docker inspect`
+```bash
+docker inspect
+```
 
+```bash
 docker inspect random_python_app 
-
+```
 [
     {
         "Id": "117d420f36dcfd6f08454fd06a783ddf0e67b71fe2fbf45a2e1d2e6eaa417692",
@@ -375,14 +425,17 @@ docker inspect random_python_app
 naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ 
 
 
-`docker port`
-
+```bash
+docker port
+```
 docker ps 
 
 CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS              PORTS                  NAMES
 8727f3a40b1d   random_fact   "python ./random_fac…"   About a minute ago   Up About a minute   0.0.0.0:5000->89/tcp   confident_zhukovsky
 
-naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ docker port confident_zhukovsky 
+naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ ```bash
+docker port confident_zhukovsky ```
+
 89/tcp -> 0.0.0.0:5000
 
 
@@ -390,8 +443,8 @@ naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ docker port confid
 
 Block until one or more containers stop, then print their exit codes
 
-docker wait confident_zhukovsky
-
+```bash docker wait confident_zhukovsky
+```
 in other tab
 
 docker stop confident_zhukovsky 
@@ -402,8 +455,9 @@ then the ourput is
 docker wait confident_zhukovsky 
 137
 
-`docker rm`
-
+```bash
+docker rm`
+```
 Remove one or more containers using docker rm
 
 
@@ -414,7 +468,9 @@ docker run -d nginx
 docker stop 8326151018c7
 8326151018c7
 
+```bash
 docker rm 8326151018c7
+```
 8326151018c7
 
 `docker attach`
@@ -431,8 +487,9 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 a7746214a259   nginx     "/docker-entrypoint.…"   31 seconds ago   Up 29 seconds   80/tcp    eager_bartik
 
 
+```bash
 docker attach a7746214a259
-
+```
 ^C2024/01/16 11:26:54 [notice] 1#1: signal 2 (SIGINT) received, exiting
 2024/01/16 11:26:54 [notice] 32#32: exiting
 2024/01/16 11:26:54 [notice] 29#29: exiting
@@ -483,21 +540,25 @@ touch copy_test.conf
 
 naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ 
 
+```bash
 docker cp copy_test.conf 818d1bb178a7:/etc/nginx/conf.d
-
+```
 Successfully copied 1.54kB to 818d1bb178a7:/etc/nginx/conf.d
 
 naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ 
 
+```bash
 docker exec 818d1bb178a7 ls /etc/nginx/conf.d
+```
 copy_test.conf
 custom.conf
 default.conf
 
 This command is used for cp from container to host
 
+```bash
 docker cp 818d1bb178a7:/etc/nginx/conf.d/default.conf .
-
+```
 Successfully copied 3.07kB to /home/naeem/Downloads/DevOps Dice/Dice-Assignment1-Part2/.
 
 naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ ls
@@ -511,8 +572,9 @@ In this, I compile all the commands with output in README.md file.
 
 **Step 5:Push the codebase for the sample application to your GitHub repository create a new one for this part**
 
+```bash
 git status
-
+```
 On branch main
 Your branch is up to date with 'origin/main'.
 
@@ -529,18 +591,23 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+```bash
 git add . 
-
-naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ git commit -m "Compile all the commands in README.md"
-
+```
+naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ 
+```bash 
+git commit -m "Compile all the commands in README.md
+```
 [main 8990a32] Compile all the commands in README.md
  4 files changed, 561 insertions(+)
  create mode 100644 copy_test.conf
  create mode 100644 custom.conf
  create mode 100644 default.conf
 
-naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ git push origin main 
-
+naeem@naeempc:~/Downloads/DevOps Dice/Dice-Assignment1-Part2$ 
+```bash
+git push origin main 
+```
 Username for 'https://github.com': itsnaeem
 Password for 'https://itsnaeem@github.com': 
 Enumerating objects: 7, done.
@@ -553,6 +620,6 @@ To https://github.com/Itsnaeem/Dice-Assignment1-Part2.git
    200074a..8990a32  main -> main
 
 
-
+## End of Part2 Assignment1
 
 END of Part 2 Assignment 1.
